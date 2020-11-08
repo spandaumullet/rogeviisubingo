@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- :smogner: -->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rogeviisubingo :sheers:</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+      }
+      div.b {
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+      button {
+        font-size: 150%;
+      }
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      table tr td {
+        border: 3px solid #000000;
+        margin: 0;
+        width: 150px;
+        height: 150px;
+        padding: 5px;
+      }
+      table tr:nth-child(3) td:nth-child(3) {
+        font-size: 150%;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>    
+    <div id="app">
+      <div class="b">
+        <button @click="makeBingo">Bingoä!</button>
+      </div>
+      <div v-if="b" class="t">
+        <table>
+          <tbody>
+            <tr v-for="r in b">
+              <td v-for="c in r">{{ c }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>    
+    <script>
+      const app = new Vue({
+        el: '#app',
+        methods: {
+          makeBingo () {
+            this.b = []
+            const u = []
+            for (let i = 0; i < 5; i++) {
+              const r = []
+              for (let j = 0; j < 5; j++) {              
+                if (i == 2 && j == 2) r.push(this.cl)
+                else {
+                  let a = false
+                  while (!a) {
+                    const s = this.l[Math.floor(Math.random() * this.l.length)]
+                    if (!u.includes(s)) {
+                      u.push(s)
+                      r.push(s)
+                      a = true
+                    }
+                  }
+                }
+              }
+              this.b.push(r)
+            }
+          }
+        },
+        mounted () { this.makeBingo() },
+        data: {
+          b: null,
+          cl: 'FINALO!',          
+          l: [
+            'Pisteä, vaikka listaa vielä kasataan',
+            'Biisoa listalle, vaikka enemmistö jo pisteytti',
+            'Harskaviisut mainittu',
+            'Sössötingiä biison sopivuudesta teemaan',
+            'Hepan vaihto',
+            'Ilmoitus kulmituksesta',
+            'Ensikertalainen mukana',
+            'Comeback ex-viisuilijalta',
+            '"Koska finalo"',
+            '"Saako laittaa kolmannen?"',
+            'Kolmas heppa lisätty lupaa kysymättä',
+            '"12p"',
+            '"#yhyy en saanut pisteä"',
+            '"Oho sain pisteä"',
+            'Toivotaan lisää punkkia',
+            'Toivotaan lisää jotain muuta kun punkkia',
+            'Voittajan perään huutelua',
+            'Uuden teeman/kierroksen perään huutelua',
+            'Rapsaus herättää keskustelua',
+            'Rapsaus jää rapsaajalta kesken',
+            'Kehotus käyttää viisusearchia',
+            'Finaloa siirretään',
+            'Epäselvyyttä vaihdoissa',
+            'Virhe finalon pisteissä',
+            'Ulinaa liian pitkästä biisosta',
+            'Ulinaa liian aikaisesta finalosta',
+            'Ulinaa liian myöhäisestä finalosta',
+            'Ulinaa lastenlaulusta',
+            'Ulinaa blokatusta videosta',
+            'Useampi biiso samalta artistilta',
+            'NOFX herättää keskustelua',
+            'Abba mainittu',
+            'KLF mainittu',
+            'Nick Cave mainittu',
+            'Neil Young mainittu',
+            ':sheers:',
+            ':wzv:',
+            ':himpatti:',
+            'Vedätystä spoiler-tageilla',
+            'Vikan finalokiekan viivyttelyä',
+            'Biisoja Bandcampissa tai Soundcloudissa',
+            'Waskyä tuurataan',
+          ],
+        },
+      })
+    </script>
+  </body>
+</html>
